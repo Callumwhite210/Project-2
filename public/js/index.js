@@ -63,6 +63,7 @@ $(document).ready(function() {
     let editBtn = $("<button>");
     editBtn.text("EDIT");
     editBtn.addClass("edit btn btn-default");
+    let newPostUser = $("<small>")
     let newPostTitle = $("<h2>");
     let newPostDate = $("<small>");
     let newPostCategory = $("<h5>");
@@ -76,6 +77,7 @@ $(document).ready(function() {
     let newPostCardBody = $("<div>");
     newPostCardBody.addClass("card-body");
     let newPostBody = $("<p>");
+    newPostUser.text(post.user + " ");
     newPostTitle.text(post.title + " ");
     newPostBody.text(post.body);
     let formattedDate = new Date(post.createdAt);
@@ -84,7 +86,10 @@ $(document).ready(function() {
     newPostTitle.append(newPostDate);
     newPostCardHeading.append(deleteBtn);
     newPostCardHeading.append(editBtn);
+    newPostCardHeading.append(likeBtn);
+    newPostCardHeading.append(dislikeBtn);
     newPostCardHeading.append(newPostTitle);
+    newPostCardHeading.append(newPostUser);
     newPostCardHeading.append(newPostCategory);
     newPostCardBody.append(newPostBody);
     newPostCard.append(newPostCardHeading);
@@ -110,7 +115,7 @@ $(document).ready(function() {
       .parent()
       .parent()
       .data("post");
-    window.location.href = "/cms?post_id=" + currentPost.id;
+    window.location.href = "/addpost?post_id=" + currentPost.id;
   }
 
   // This function displays a message when there are no posts
