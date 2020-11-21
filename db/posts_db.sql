@@ -10,6 +10,8 @@ CREATE TABLE posts (
     posted VARCHAR(100) NOT NULL,
     likes INT NOT NULL DEFAULT(0),
     dislikes INT NOT NULL DEFAULT(0),
+    catagory VARCHAR(40) NOT NULL,
+    title VARCHAR (40) NOT NULL,
     PRIMARY KEY (id)
 );
 
@@ -22,8 +24,8 @@ CREATE TABLE comments (
     FOREIGN KEY (post_id) REFERENCES posts (id) 
 );
 
-INSERT INTO posts (username, posted)
-VALUE ("Test Username", "Test Post");
+INSERT INTO posts (username, posted, catagory, title)
+VALUE ("Test Username", "Test Post", "Test Catagory", "test title");
 
 INSERT INTO comments (username, commented, post_id)
 VALUE ("Test commenter" , "Test comment", 1);
