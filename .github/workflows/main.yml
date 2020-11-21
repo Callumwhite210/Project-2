@@ -27,5 +27,3 @@ jobs:
       run: git push heroku master 
 
 
-- name: Deploy to Heroku
-  uses: AkhileshNS/heroku-deploy@v3.6.8
