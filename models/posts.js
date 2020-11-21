@@ -1,13 +1,15 @@
 let orm = require("../config/sequelize.js")
+let Sequelize = require("sequelize");
+const sequelize = require("../config/connection.js");
 
-let posts = {
-    all: function(cb) {
-        orm.all("posts", function(res){
-            cb(res);
-        });
-    },
+let Posts = sequelize.define("posts", {
+    routeName: Sequelize.STRING,
+    username: Sequelize.STRING,
+    posted: Sequelize.STRING,
+    catagory: Sequelize.STRING,
+    title: Sequelize.STRING
+});
 
+Posts.sync();
 
-};
-
-module.exports = posts;
+module.exports = Posts;

@@ -1,6 +1,6 @@
 const connection = require("../config/connection.js");
 
-let orm = {
+ orm = {
     all: function(cb) {
         var queryString = "SELECT * FROM posts;";
         connection.query(queryString, function(err, result) {

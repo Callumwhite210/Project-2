@@ -2,19 +2,17 @@ const express = require("express");
 
 const router = express.Router();
 
-//Will take posts from posts.js
-let posts = require("../models/posts.js");
+let Posts = require("../models/posts.js");
 
-router.get("/", function(req, res) {
-    posts.all(function(data){
-        let dbObject = {
-            posts: data
-        };
-    console.log(dbObject);
-    res.render("index",dbObject);
-    });
-});
+module.exports = function(app){
+app.get("/api/:posts?", function(req,res){
+    if (req.params.posts) {
+            Posts.findAll().then(function(result) {
+            return res.json(result);
+            });
+          }
+        });
+    }
+   
 
 
-
-module.exports = router;
