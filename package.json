@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/Callumwhite210/Project-2#readme",
   "dependencies": {
+    "bad-words": "^3.0.4",
     "express": "^4.17.1",
     "express-handlebars": "^5.2.0",
     "mysql": "^2.18.1"
