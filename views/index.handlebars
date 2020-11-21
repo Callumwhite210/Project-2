@@ -15,9 +15,24 @@
         <a class="btn btn-secondary" href="addpost.html">New Post</a>
       </div>
     </div>
-    <div class="row">
-      <div class="col-md-12 post-container">
+  </div>
+<div class="container d-flex flex-row">
+
+  {{#each}}
+    <div class="card m-2">
+      <div class="card-body">
+        <h5 class="card-title">Post Title</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Post Category</h6>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <div class="d-flex justify-content-around align-items-center">
+          <div class="btn-group">
+            <button type="button" class="btn btn-sm btn-outline-secondary">Like</button>
+            <button type="button" class="btn btn-sm btn-outline-secondary">Dislike</button>
+          </div>
+          <small class="text-muted">User</small>
+        </div>
       </div>
     </div>
-  </div>
+  {{/each}}
+</div>
   
