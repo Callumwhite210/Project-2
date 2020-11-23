@@ -1,11 +1,18 @@
-const express = require("express");
+let Post = require("../models/posts");
+let express = require("express");
+let router = express.Router();
 
-const router = express.Router();
-
-router.get("/", function(req, res) {
-
-    res.render("index");
-})
+/* router.get("/", function(req, res) {
+  res.render("index"); */
+//})
 
 
-module.exports = router;
+  router.get("/", function(req, res) {
+    Post.findAll({raw:true}).then(function(results) {
+      console.log(results);
+      res.render("index", {posts:results});
+     
+    });
+  });
+
+module.exports = router
