@@ -3,7 +3,7 @@
     <div class="row mt-4">
       <div class="col-6">
         <div class="form-group">
-          <select class="custom-select" id="category">
+          <select class="custom-select" id="post-category">
             <option selected value="">All Categories</option>
             <option value="Personal">Personal</option>
             <option value="Product Review">Product Review</option>
@@ -22,6 +22,7 @@
     <div class="col mb-2">
     <div class="card post-card">
       <div class="card-body">
+         <h5 class="card-title">{{title}}</h5>
         <h6 class="card-subtitle mb-2 text-muted">{{category}}</h6>
         <p class="card-text">{{posted}}</p>
         <div class="d-flex justify-content-around align-items-center">
