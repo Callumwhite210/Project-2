@@ -2,20 +2,20 @@
     <div class="row">
       <div class="row">
         <div class="col-sm-2 mt-4">
-          <a class="btn btn-secondary" href="index.html">Back</a>
+          <a class="btn btn-secondary" role="button" id="home-btn">Back</a>
         </div>
       </div>
       <div class="col-md-5 offset-md-3">
         <form id="cms">
           <div class="form-group">
             <label for="User">Username:</label>
-            <input type="text" class="form-control" id="user">
+            <input type="text" class="form-control" id="user" required="required">
             <br/>
             <label for="title">Title:</label>
-            <input type="text" class="form-control" id="title">
+            <input type="text" class="form-control" id="title" required="required">
             <br/>
-            <label for="body">Post:</label>
-            <textarea class="form-control" rows="10" id="body"></textarea>
+            <label for="post-body">Post:</label>
+            <textarea class="form-control" rows="10" id="post-body" required="required"></textarea>
             <div class="form-group">
               <label for="category">Select Category:</label>
               <select class="custom-select" id="category">
@@ -25,7 +25,7 @@
               </select>
             </div>
             <br />
-            <button type="submit" class="btn btn-success submit btn-lg">Submit</button>
+            <button type="submit" class="btn btn-success submit btn-lg" id="submit-btn">Submit</button>
           </div>
         </form>
       </div>

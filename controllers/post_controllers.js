@@ -1,18 +1,30 @@
-let Post = require("../models/posts");
-let express = require("express");
-let router = express.Router();
+const db = require("../models/posts");
+const express = require("express");
+const Filter = require("bad-words");
+const filter = new Filter();
+const router = express.Router();
 
-/* router.get("/", function(req, res) {
-  res.render("index"); */
-//})
-
-
-  router.get("/", function(req, res) {
-    Post.findAll({raw:true}).then(function(results) {
-      console.log(results);
-      res.render("index", {posts:results});
-     
+// display all posts on the hompeage form the db
+router.get("/", function(req, res) {
+  db.findAll({raw:true}).then(function(results) {
+    //console.log(results);
+    res.render("index", {posts:results});
     });
-  });
+});
+
+// display form to enter new posts
+router.get("/newposts", function(req, res){
+  res.render("addpost");
+});
+
+// enter new posts and store in db
+router.post("/createpost", async function(req, res) {
+  // clean body of new posts using bad-words package
+  let postText = filter.clean(req.body.posted);
+  // write new post to db
+  db.create({username:req.body.username, title:req.body.title, posted: postText, category: req.body.category});
+  // sync db
+  db.sync();
+});
 
 module.exports = router
