@@ -16,12 +16,22 @@ let Post = sequelize.define("posts", {
   },
   // the username for the post (a string)
   username: Sequelize.STRING,
+  // the title of the post (a string)
+  title: Sequelize.STRING,
   // the post (a string)
   posted: Sequelize.STRING,
+  // category a string
+  category: Sequelize.STRING,
   // the likes (an integer)
-  likes: Sequelize.INTEGER,
+  likes:{
+    type: Sequelize.INTEGER,
+    defaultValue: 0
+  }, 
   //the dislikes (an integer)
-  dislikes: Sequelize.INTEGER,
+  dislikes:{
+    type: Sequelize.INTEGER,
+    defaultValue: 0
+  },
   // and the posts comments (an int)
 }, {
   // disable the modification of tablenames; By default, sequelize will automatically
@@ -31,12 +41,12 @@ let Post = sequelize.define("posts", {
 });
 //test posts
 
-//Post.create({username: "test name", posted: "test post"});
+Post.create({username:"random_user", title:"random_title", posted: "This is a random test post", category: "Personal"});
 
-//Post.create({username:"test 2", posted: "test post 2"});
+Post.create({username:"random user", title:"random_title", posted: "This is a random test post", category:"Political"});
 
 // Syncs with DB
 Post.sync();
 
-// Makes the Character Model available for other files (will also create a table)
+// Makes the Character Model available for other files
 module.exports = Post;
