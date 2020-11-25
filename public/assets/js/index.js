@@ -41,6 +41,6 @@ $(document).ready(function(){
     $("#user").val("");
     $("#title").val("");
     $("#post-body").val("");
-})
+});
 
 });
