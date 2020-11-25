@@ -26,5 +26,6 @@ connect.connect();
      idle: 10000
    }
  }); */
+module.exports = connection;
 
 module.exports = sequelize;
