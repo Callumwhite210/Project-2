@@ -1,7 +1,7 @@
 
-  <div class="container">
+  <div class="container my-3">
     <div class="row mt-4">
-      <div class="col-md-4">
+      <div class="col-6">
         <div class="form-group">
           <select class="custom-select" id="category">
             <option selected value="">All Categories</option>
@@ -11,28 +11,30 @@
           </select>
         </div>
       </div>
-      <div class="col-md-2">
-        <a class="btn btn-secondary" href="addpost.html">New Post</a>
+      <div class="col">
+        <a class="btn btn-secondary" role="button" id="new-post-btn">New Post</a>
       </div>
     </div>
   </div>
-<div class="container">
+<div class="container-fluid">
+  <div class="row justify-content-center row-cols-sm-1 row-cols-md-1 row-cols-lg-3 row-cols-xl-4">
   {{#each posts}}   
-  <div class ="col">
-    <div class="card m-2">
+    <div class="col mb-2">
+    <div class="card post-card">
       <div class="card-body">
-        <h6 class="card-subtitle mb-2 text-muted">{{id}}</h6>
+        <h6 class="card-subtitle mb-2 text-muted">{{category}}</h6>
         <p class="card-text">{{posted}}</p>
         <div class="d-flex justify-content-around align-items-center">
           <div class="btn-group">
-            <button type="button" class="btn btn-sm btn-outline-secondary">Like</button>
-            <button type="button" class="btn btn-sm btn-outline-secondary">Dislike</button>
+            <button type="button" class="btn btn-sm btn-outline-secondary">{{likes}} Like</button>
+            <button type="button" class="btn btn-sm btn-outline-secondary">{{dislikes}} Dislike</button>
           </div>
           <small class="text-muted">{{username}}</small>
         </div>
       </div>
     </div>
-  </div>
+    </div>
   {{/each}}
+  </div>
 </div>
   
