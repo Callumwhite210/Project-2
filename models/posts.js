@@ -41,9 +41,9 @@ let Post = sequelize.define("posts", {
 });
 //test posts
 
-Post.create({username:"random_user", title:"random_title", posted: "This is a random test post", category: "Personal"});
+Post.create({username:"random_user", title:"random_title", posted: "This is a random test post", category: "Personal", likes: 2});
 
-Post.create({username:"random user", title:"random_title", posted: "This is a random test post", category:"Political"});
+Post.create({username:"random user", title:"random_title", posted: "This is a random test post", category:"Political" , dislikes: 2});
 
 // Syncs with DB
 Post.sync();

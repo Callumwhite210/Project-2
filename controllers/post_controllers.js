@@ -27,4 +27,10 @@ router.post("/createpost", async function(req, res) {
   db.sync();
 });
 
+//Likes 
+router.post("/updatelike", function(req, res){
+  db.create({likes:req.body.likes});
+  db.sync();
+});
+
 module.exports = router
