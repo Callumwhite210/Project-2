@@ -1,5 +1,30 @@
 
 $(document).ready(function(){
+
+  // show hide category-posts based on dropdown selection
+  $("#post-category").on("change", function(){
+    
+    let postCategory = $(this).val();
+    
+    switch (postCategory) {
+      case "Political":
+        $(".Personal, .Product Review").hide();
+        $(".Political").show();
+        break;
+      case "Personal":
+        $(".Political, .Product Review").hide();
+        $(".Personal").show();
+      break;
+      case "Product Review":
+        $(".Political, .Personal").hide();
+        $(".Product Review").show();
+      break;
+      case "All Categories":
+      $(".Political, .Product Review, .Personal").show();
+        break;
+    }
+    
+  });
   // display the new post form on button click
   $("#new-post-btn").on("click",function(){
 

@@ -12,6 +12,17 @@ router.get("/", function(req, res) {
     });
 });
 
+// below function not required anymore
+/*
+router.get("/category/:postCategory", function(req, res){
+
+  let categoryToGet = req.params.postCategory;
+
+  db.findAll({where:{category: categoryToGet}, raw:true}).then(function(results){
+    res.render("index", {posts:results});
+  });
+});
+*/
 // display form to enter new posts
 router.get("/newposts", function(req, res){
   res.render("addpost");
