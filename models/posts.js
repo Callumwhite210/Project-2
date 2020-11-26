@@ -33,7 +33,7 @@ let Post = sequelize.define("posts", {
     defaultValue: 0
   },
   // and the posts comments (an int)
-}, {
+},{
   // disable the modification of tablenames; By default, sequelize will automatically
   // transform all passed model names (first parameter of define) into plural.
   // if you don't want that, set the following
@@ -41,9 +41,9 @@ let Post = sequelize.define("posts", {
 });
 //test posts
 
-Post.create({username:"random_user", title:"random_title", posted: "This is a random test post", category: "Personal"});
+Post.create({username:"random_user", title:"random_title", posted: "This is a random test post", category: "Personal", likes: 2});
 
-Post.create({username:"random user", title:"random_title", posted: "This is a random test post", category:"Political"});
+Post.create({username:"random user", title:"random_title", posted: "This is a random test post", category:"Political" , dislikes: 2});
 
 Post.create({username:"random user", title:"random_title", posted: "This is a random test post", category:"Product Review"});
 

@@ -1,3 +1,4 @@
+const connection = require("mysql2/typings/mysql/lib/Connection");
 
 $(document).ready(function(){
 
@@ -68,4 +69,25 @@ $(document).ready(function(){
     $("#post-body").val("");
 });
 
+$(".like-btn").on("click", function (){
+  let newLike = {
+    id: $(this).data("id")
+  } 
+   $.ajax("/updateLike",{
+     type: "POST",
+     data: newLike,
+   }).then(
+    function addLike(){
+      let query = connection.query(
+        "UPDATE posts SET likes = likes +1 WHERE id ="+ newLike.id +";",
+        {
+
+        }
+      )
+    }
+   )
+
 });
+
+});
+
