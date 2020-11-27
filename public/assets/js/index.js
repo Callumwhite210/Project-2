@@ -1,4 +1,4 @@
-const connection = require("mysql2/typings/mysql/lib/Connection");
+//const connection = require("mysql2/typings/mysql/lib/Connection");
 
 $(document).ready(function(){
 
@@ -69,21 +69,24 @@ $(document).ready(function(){
     $("#post-body").val("");
 });
 
+// update Likes for each post
 $(".like-btn").on("click", function (){
+  // select like btn with data id
   let newLike = {
     id: $(this).data("id")
-  } 
+  }
+  // send data id to db to updated likes for the post 
    $.ajax("/updateLike",{
-     type: "POST",
+     type: "PUT",
      data: newLike,
-   }).then(
-    function addLike(){
-      let query = connection.query(
-        "UPDATE posts SET likes = likes +1 WHERE id ="+ newLike.id +";",
-        {
-
-        }
-      )
+   })
+   // update likes on page for the post
+   // by getting number of likes form the server response
+   .then(
+    function(data){
+      let updatedPostId = data.id;
+      let numberOfLikes = data.likes;
+       $(`#likebtn${updatedPostId}`).text(`${numberOfLikes} Likes`);
     }
    )
 

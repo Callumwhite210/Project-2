@@ -34,14 +34,29 @@ router.post("/createpost", async function(req, res) {
   let postText = filter.clean(req.body.posted);
   // write new post to db
   db.create({username:req.body.username, title:req.body.title, posted: postText, category: req.body.category});
-  // sync db
-  db.sync();
 });
 
-//Likes 
-router.post("/updatelike", function(req, res){
-  db.create({likes:req.body.likes});
-  db.sync();
+//Likes updates
+router.put("/updatelike", function(req, res){
+  //get id for the row to be updated
+  let idTobeUpdated = req.body.id;
+  console.log(idTobeUpdated);
+  //find row by id
+  db.findOne({
+    where: { 
+      id: idTobeUpdated, 
+    }
+    // increment likes by 1
+  }).then(like => {
+    return like.increment('likes');
+    // reload the updated row
+  }).then(post => {
+    return post.reload();
+    // send updated row back to frontend
+  }).then(post => {
+    res.json(post);
+  });
+  
 });
 
 module.exports = router
