@@ -1,1 +1,25 @@
 
+.background-image { background-image: url(/public/assets/images/bg1.JPG);
+    background-size: cover;
+    background-attachment: scroll;
+    background-repeat: repeat;
+    background-position: center;
+    background-color: rgb(160, 159, 159);
+    background-blend-mode: soft-light;
+    }
+
+.display-4 {
+    font-family: 'Poppins', sans-serif;
+}
+
+.post-container {
+    background: #ffffff;
+    box-shadow: 0px 0px 10px 0px #000000; 
+}
+
+.post-form {
+    position: absolute;
+    padding: 20px; 
+    border-radius: 10px;
+    width: 700px; 
+}
