@@ -47,7 +47,7 @@ $(document).ready(function(){
   // submit form data in a POST query
   $("#submit-btn").on("submit", function (event) {
 
-    //event.preventDefault();
+    event.preventDefault();
     // get all values for the form and create an Object 
     let newPost = {
 
