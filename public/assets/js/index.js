@@ -45,7 +45,7 @@ $(document).ready(function(){
     })
   });
   // submit form data in a POST query
-  $("#submit-btn").on("submit", function (event) {
+  $("#submit-btn").on("click", function (event) {
 
     event.preventDefault();
     // get all values for the form and create an Object 
@@ -66,8 +66,14 @@ $(document).ready(function(){
     $("#title").val("");
     $("#post-body").val("");
     //Return user to posts page
+     //location.href = "/";
+     $(".modal").modal('show');
+    });
+  
+  //Return to home page when modal closed
+  
+  $(".modal-btn").on("click", function(){
     location.href = "/";
-
   });
 
 // update Likes for each post

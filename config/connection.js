@@ -5,7 +5,7 @@ const { connect } = require("../controllers/post_controllers");
 
 
 
-let sequelize = new Sequelize("posts_db", "root", "localpass", {
+let sequelize = new Sequelize("posts_db", "root", "1234", {
    host: "localhost",
    port: 3306,
    dialect: "mysql",
