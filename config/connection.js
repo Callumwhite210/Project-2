@@ -3,8 +3,8 @@ const Sequelize = require("sequelize");
 
 
 
-let sequelize = new Sequelize("posts_db", "root", "localpass", {
-   host: "localhost",
+let sequelize = new Sequelize("cwps2uhy3rl1ri7c", "qdtonaymnd8v1p9u", "uyvaxf6i5lazjg4q", {
+   host: "r1bsyfx4gbowdsis.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
    port: 3306,
    dialect: "mysql",
    pool: {
@@ -23,17 +23,3 @@ try {
 
 module.exports = sequelize;
 
-/* if (process.env.JAWSDB_URL){
-  connection = mysql.createConnection(process.env.JAWSDB_URL)
-} else {
-    connection = mysql.createConnection({
-      host: "localhost",
-      port: 3306,
-      user: "root",
-      password: "localpass",
-      database: "posts_db"
-    })
-    } */
-
-//connect.connect();
-//module.exports = connection;
