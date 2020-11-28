@@ -1,3 +1,5 @@
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '1234';
+
 DROP DATABASE IF EXISTS posts_db;
 
 CREATE DATABASE posts_db;
@@ -21,6 +23,9 @@ CREATE TABLE comments (
     PRIMARY KEY (id),
     FOREIGN KEY (post_id) REFERENCES posts (id) 
 );
+
+DROP TABLE posts;
+DROP TABLE comments;
 
 INSERT INTO posts (username, posted)
 VALUE ("Test Username", "Test Post");

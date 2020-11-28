@@ -62,12 +62,15 @@ $(document).ready(function(){
       data: newPost,
     }).then(
       function() {
+       
       });
       // clear all fields when submit btn is clicked
     $("#user").val("");
     $("#title").val("");
     $("#post-body").val("");
-});
+      //Return user to posts page
+
+  });
 
 // update Likes for each post
 $(".like-btn").on("click", function (){
