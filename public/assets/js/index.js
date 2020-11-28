@@ -9,19 +9,19 @@ $(document).ready(function(){
     
     switch (postCategory) {
       case "Political":
-        $(".Personal, .Product Review").hide();
+        $(".Personal, .Product").hide();
         $(".Political").show();
         break;
       case "Personal":
-        $(".Political, .Product Review").hide();
+        $(".Political, .Product").hide();
         $(".Personal").show();
       break;
       case "Product Review":
         $(".Political, .Personal").hide();
-        $(".Product Review").show();
+        $(".Product").show();
       break;
       case "All Categories":
-      $(".Political, .Product Review, .Personal").show();
+      $(".Political, .Product, .Personal").show();
         break;
     }
     
@@ -60,15 +60,13 @@ $(document).ready(function(){
     $.ajax("/createpost/", {
       type: "POST",
       data: newPost,
-    }).then(
-      function() {
-       
-      });
+    })
       // clear all fields when submit btn is clicked
     $("#user").val("");
     $("#title").val("");
     $("#post-body").val("");
-      //Return user to posts page
+    //Return user to posts page
+    location.href = "/";
 
   });
 
