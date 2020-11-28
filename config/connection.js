@@ -5,8 +5,8 @@ const { connect } = require("../controllers/post_controllers");
 
 
 
-let sequelize = new Sequelize("posts_db", "root", "localpass", {
-   host: "localhost",
+let sequelize = new Sequelize("cwps2uhy3rl1ri7c", "qdtonaymnd8v1p9u", "uyvaxf6i5lazjg4q", {
+   host: "r1bsyfx4gbowdsis.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
    port: 3306,
    dialect: "mysql",
    pool: {
