@@ -66,6 +66,13 @@ $(document).ready(function(){
     $("#title").val("");
     $("#post-body").val("");
     //Return user to posts page
+     //location.href = "/";
+     $(".modal").modal('show');
+    });
+  
+  //Return to home page when modal closed
+  
+  $(".modal-btn").on("click", function(){
     location.href = "/";
   });
 
