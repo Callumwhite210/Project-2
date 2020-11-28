@@ -15,7 +15,7 @@ router.get("/", function(req, res) {
 // display form to enter new posts
 router.get("/newposts", function(req, res){
   res.render("addpost");
-});
+})
 
 // enter new posts and store in db
 router.post("/createpost", async function(req, res) {
