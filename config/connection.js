@@ -1,5 +1,8 @@
+/*
 const Sequelize = require("sequelize");
 
+let sequelize = new Sequelize("posts_db", "qdtonaymnd8v1p9u", "uyvaxf6i5lazjg4q", {
+   host: "127.0.0.1",
 //what is this for?
 const { connect } = require("../controllers/post_controllers");
 
@@ -16,6 +19,7 @@ let sequelize = new Sequelize("posts_db", "root", "1234", {
    }
  });
 
+
 try {
   sequelize.authenticate();
   console.log('Connection has been established successfully.');
@@ -24,4 +28,4 @@ try {
 }
 
 module.exports = sequelize;
-
+*/
