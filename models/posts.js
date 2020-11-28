@@ -2,34 +2,35 @@
 // =============================================================
 
 // Sequelize (capital) references the standard library
-const Sequelize = require("sequelize");
+//const Sequelize = require("sequelize");
 // sequelize (lowercase) references our connection to the DB.
-const sequelize = require("../config/connection.js");
+//const sequelize = require("../config/connection.js");
 
 // Creates a "Post" model that matches up with DB
-let Post = sequelize.define("posts", {
+module.exports = function(sequelize, DataTypes){
+  let Posts = sequelize.define("Posts", {
   // the id gets saved as a string
   id:{
-    type: Sequelize.INTEGER,
+    type: DataTypes.INTEGER,
     primaryKey: true,
     autoIncrement: true // Automatically gets converted to SERIAL for postgres
   },
   // the username for the post (a string)
-  username: Sequelize.STRING,
+  username: DataTypes.STRING,
   // the title of the post (a string)
-  title: Sequelize.STRING,
+  title: DataTypes.STRING,
   // the post (a string)
-  posted: Sequelize.STRING,
+  posted: DataTypes.STRING,
   // category a string
-  category: Sequelize.STRING,
+  category: DataTypes.STRING,
   // the likes (an integer)
   likes:{
-    type: Sequelize.INTEGER,
+    type: DataTypes.INTEGER,
     defaultValue: 0
   }, 
   //the dislikes (an integer)
   dislikes:{
-    type: Sequelize.INTEGER,
+    type: DataTypes.INTEGER,
     defaultValue: 0
   },
   // and the posts comments (an int)
@@ -40,6 +41,9 @@ let Post = sequelize.define("posts", {
   freezeTableName: true
 });
 
+return Posts;
+
+};
 
 //test posts
 /*
@@ -50,7 +54,7 @@ Post.create({username:"random user", title:"random_title", posted: "This is a ra
 Post.create({username:"random user", title:"random_title", posted: "This is a random test post", category:"Product Review"});
 */
 // Syncs with DB
-Post.sync();
+//Post.sync();
 
 // Makes the Character Model available for other files
-module.exports = Post;
+//module.exports = Post;

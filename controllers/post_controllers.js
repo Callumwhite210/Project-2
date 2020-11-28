@@ -1,4 +1,4 @@
-const db = require("../models/posts");
+const db = require("../models");
 const express = require("express");
 const Filter = require("bad-words");
 const filter = new Filter();
@@ -6,7 +6,7 @@ const router = express.Router();
 
 // display all posts on the hompeage form the db
 router.get("/", function(req, res) {
-  db.findAll({raw:true, order: [['id', 'DESC']]}).then(function(results) {
+  db.Posts.findAll({raw:true, order: [['id', 'DESC']]}).then(function(results) {
     //console.log(results);
     res.render("index", {posts:results});
     });
@@ -23,7 +23,7 @@ router.post("/createpost", async function(req, res) {
   let postText = filter.clean(req.body.posted);
   let postTitle = filter.clean(req.body.title);
   // write new post to db
-  db.create({username:req.body.username, title:postTitle, posted: postText, category: req.body.category});
+  db.Posts.create({username:req.body.username, title:postTitle, posted: postText, category: req.body.category});
 });
 
 //Likes updates
@@ -32,7 +32,7 @@ router.put("/updatelike", function(req, res){
   let idTobeUpdated = req.body.id;
   console.log(idTobeUpdated);
   //find row by id
-  db.findOne({
+  db.Posts.findOne({
     where: { 
       id: idTobeUpdated, 
     }
@@ -55,7 +55,7 @@ router.put("/updateDislike", function(req, res){
   let idTobeUpdated = req.body.id;
   console.log(idTobeUpdated);
   //find row by id
-  db.findOne({
+  db.Posts.findOne({
     where: { 
       id: idTobeUpdated, 
     }
