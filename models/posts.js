@@ -45,6 +45,8 @@ Post.create({username:"random_user", title:"random_title", posted: "This is a ra
 
 Post.create({username:"random user", title:"random_title", posted: "This is a random test post", category:"Political" , dislikes: 2});
 
+Post.create({username:"random user", title:"random_title", posted: "This is a random test post", category:"Product Review"});
+
 // Syncs with DB
 Post.sync();
 
