@@ -1,16 +1,10 @@
  <div class="container container-bg">
     <div class="row">
-
-      {{!-- <div class="row">
-         <div class="col-sm-2 mt-4">
-          {{!-- <a class="btn btn-secondary" role="button" id="home-btn">Back</a> --}}
-        </div> 
-      </div> --}}
       <div class="{{!-- col-md-5 offset-md-3  --}}col-lg d-flex justify-content-center">
         <form id="cms" class="post-container post-form">
           <div class="form-group">
             <label for="User" class="pt-3">Username:</label>
-            <input type="text" class="form-control" id="user" required="required">
+            <input type="text" class="form-control" id="user" required="true">
 
             <br/>
             <label for="title">Title:</label>
@@ -18,7 +12,7 @@
             <br/>
             <label for="post-body">Post:</label>
 
-            <textarea class="form-control" rows="10" id="post-body" required="required" placeholder="Your post is limited to 10 lines."></textarea>
+            <textarea class="form-control" rows="10" id="post-body" placeholder="Your post is limited to 10 lines." required="true"></textarea>
             <div class="form-group">
               <label for="category" class="pt-3">Select Category:</label>
               <select class="custom-select" id="category">
@@ -30,10 +24,7 @@
             <br />
             <a class="btn btn-lg btn-secondary" role="button" id="home-btn">Back</a>
             <button type="submit" class="btn btn-success submit btn-lg float-right" id="submit-btn">Submit</button>
-            
-
           </div>
-          <button type="submit" class="btn btn-success submit btn-lg" id="submit-btn">Submit</button>
         </form>
       </div>
     </div>

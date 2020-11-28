@@ -9,19 +9,19 @@ $(document).ready(function(){
     
     switch (postCategory) {
       case "Political":
-        $(".Personal, .Product Review").hide();
+        $(".Personal, .Product").hide();
         $(".Political").show();
         break;
       case "Personal":
-        $(".Political, .Product Review").hide();
+        $(".Political, .Product").hide();
         $(".Personal").show();
       break;
       case "Product Review":
         $(".Political, .Personal").hide();
-        $(".Product Review").show();
+        $(".Product").show();
       break;
       case "All Categories":
-      $(".Political, .Product Review, .Personal").show();
+      $(".Political, .Product, .Personal").show();
         break;
     }
     
@@ -45,9 +45,9 @@ $(document).ready(function(){
     })
   });
   // submit form data in a POST query
-  $("#submit-btn").on("click", function (event) {
+  $("#submit-btn").on("submit", function (event) {
 
-    event.preventDefault();
+    //event.preventDefault();
     // get all values for the form and create an Object 
     let newPost = {
 
@@ -60,15 +60,13 @@ $(document).ready(function(){
     $.ajax("/createpost/", {
       type: "POST",
       data: newPost,
-    }).then(
-      function() {
-       
-      });
+    })
       // clear all fields when submit btn is clicked
     $("#user").val("");
     $("#title").val("");
     $("#post-body").val("");
-      //Return user to posts page
+    //Return user to posts page
+    location.href = "/";
 
   });
 
@@ -90,6 +88,28 @@ $(".like-btn").on("click", function (){
       let updatedPostId = data.id;
       let numberOfLikes = data.likes;
        $(`#likebtn${updatedPostId}`).text(`${numberOfLikes} Likes`);
+    }
+   )
+
+});
+
+$(".dislike-btn").on("click", function (){
+  // select like btn with data id
+  let newDislike = {
+    id: $(this).data("id")
+  }
+  // send data id to db to updated likes for the post 
+   $.ajax("/updateDislike",{
+     type: "PUT",
+     data: newDislike,
+   })
+   // update dislikes on page for the post
+   // by getting number of likes form the server response
+   .then(
+    function(data){
+      let updatedPostId = data.id;
+      let numberOfDislikes = data.dislikes;
+       $(`#dislikebtn${updatedPostId}`).text(`${numberOfDislikes} Dislikes`);
     }
    )
 

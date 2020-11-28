@@ -1,7 +1,5 @@
 const Sequelize = require("sequelize");
 
-//what is this for?
-const { connect } = require("../controllers/post_controllers");
 
 
 
