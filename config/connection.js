@@ -1,10 +1,8 @@
+/*
 const Sequelize = require("sequelize");
 
-
-
-
-let sequelize = new Sequelize("cwps2uhy3rl1ri7c", "qdtonaymnd8v1p9u", "uyvaxf6i5lazjg4q", {
-   host: "r1bsyfx4gbowdsis.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+let sequelize = new Sequelize("posts_db", "qdtonaymnd8v1p9u", "uyvaxf6i5lazjg4q", {
+   host: "127.0.0.1",
    port: 3306,
    dialect: "mysql",
    pool: {
@@ -14,6 +12,7 @@ let sequelize = new Sequelize("cwps2uhy3rl1ri7c", "qdtonaymnd8v1p9u", "uyvaxf6i5
    }
  });
 
+
 try {
   sequelize.authenticate();
   console.log('Connection has been established successfully.');
@@ -22,4 +21,4 @@ try {
 }
 
 module.exports = sequelize;
-
+*/
