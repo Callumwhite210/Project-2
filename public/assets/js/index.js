@@ -47,7 +47,7 @@ $(document).ready(function(){
   // submit form data in a POST query
   $("#submit-btn").on("submit", function (event) {
 
-    //event.preventDefault();
+    event.preventDefault();
     // get all values for the form and create an Object 
     let newPost = {
 
@@ -67,7 +67,6 @@ $(document).ready(function(){
     $("#post-body").val("");
     //Return user to posts page
     location.href = "/";
-
   });
 
 // update Likes for each post
