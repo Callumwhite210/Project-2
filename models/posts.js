@@ -6,6 +6,17 @@ const Sequelize = require("sequelize");
 // sequelize (lowercase) references our connection to the DB.
 const sequelize = require("../config/connection.js");
 
+
+//changed for connection to JAWSDB
+const config = require(__dirname + "/../config/config.json");
+
+if (config.use_env_variable){
+  let sequelize = new Sequelize(process.env[config.use_env_variable]);
+} else {
+  let sequelize = new Sequelize(config.database, config.username, config.password, config);
+}
+
+
 // Creates a "Post" model that matches up with DB
 let Post = sequelize.define("posts", {
   // the id gets saved as a string
