@@ -45,9 +45,9 @@ $(document).ready(function(){
     })
   });
   // submit form data in a POST query
-  $("#submit-btn").on("click", function (event) {
+  $("#submit-btn").on("submit", function (event) {
 
-    event.preventDefault();
+    //event.preventDefault();
     // get all values for the form and create an Object 
     let newPost = {
 
@@ -88,6 +88,28 @@ $(".like-btn").on("click", function (){
       let updatedPostId = data.id;
       let numberOfLikes = data.likes;
        $(`#likebtn${updatedPostId}`).text(`${numberOfLikes} Likes`);
+    }
+   )
+
+});
+
+$(".dislike-btn").on("click", function (){
+  // select like btn with data id
+  let newDislike = {
+    id: $(this).data("id")
+  }
+  // send data id to db to updated likes for the post 
+   $.ajax("/updateDislike",{
+     type: "PUT",
+     data: newDislike,
+   })
+   // update dislikes on page for the post
+   // by getting number of likes form the server response
+   .then(
+    function(data){
+      let updatedPostId = data.id;
+      let numberOfDislikes = data.dislikes;
+       $(`#dislikebtn${updatedPostId}`).text(`${numberOfDislikes} Dislikes`);
     }
    )
 

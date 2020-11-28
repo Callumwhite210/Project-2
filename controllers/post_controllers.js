@@ -49,4 +49,27 @@ router.put("/updatelike", function(req, res){
   
 });
 
+//Dislikes updates
+router.put("/updateDislike", function(req, res){
+  //get id for the row to be updated
+  let idTobeUpdated = req.body.id;
+  console.log(idTobeUpdated);
+  //find row by id
+  db.findOne({
+    where: { 
+      id: idTobeUpdated, 
+    }
+    // increment likes by 1
+  }).then(like => {
+    return like.increment('dislikes');
+    // reload the updated row
+  }).then(post => {
+    return post.reload();
+    // send updated row back to frontend
+  }).then(post => {
+    res.json(post);
+  });
+  
+});
+
 module.exports = router
