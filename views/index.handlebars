@@ -7,7 +7,7 @@
       <div class="col-6">
         <div class="form-group float-right">
           <select class="custom-select" id="post-category">
-            <option selected value="">All Categories</option>
+            <option selected value="All Categories">All Categories</option>
             <option value="Personal">Personal</option>
             <option value="Product Review">Product Review</option>
             <option value="Political">Political</option>
@@ -22,7 +22,7 @@
 <div class="container-fluid">
   <div class="row justify-content-center row-cols-sm-1 row-cols-md-1 row-cols-lg-3 row-cols-xl-4">
   {{#each posts}}   
-    <div class="col mb-2">
+    <div class="col mb-2 {{category}}">
     <div class="card post-card post-container">
       <div class="card-body">
          <h5 class="card-title">{{title}}</h5>
@@ -30,8 +30,8 @@
         <p class="card-text">{{posted}}</p>
         <div class="d-flex justify-content-around align-items-center">
           <div class="btn-group">
-            <button type="button" class="btn btn-sm btn-outline-secondary" data-id="{{id}}">{{likes}} Like</button>
-            <button type="button" class="btn btn-sm btn-outline-secondary" data-id="{{id}}">{{dislikes}} Dislike</button>
+            <button type="button" class="btn btn-sm btn-outline-secondary like-btn" role="button" data-id="{{id}}" id="likebtn{{id}}">{{likes}} Like</button>
+            <button type="button" class="btn btn-sm btn-outline-secondary dislike-btn" role="button" data-id="{{id}}" id="dilsikebtn{{id}}">{{dislikes}} Dislike</button>
           </div>
           <small class="text-muted">{{username}}</small>
         </div>

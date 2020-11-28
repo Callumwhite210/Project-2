@@ -12,6 +12,17 @@ router.get("/", function(req, res) {
     });
 });
 
+// below function not required anymore
+/*
+router.get("/category/:postCategory", function(req, res){
+
+  let categoryToGet = req.params.postCategory;
+
+  db.findAll({where:{category: categoryToGet}, raw:true}).then(function(results){
+    res.render("index", {posts:results});
+  });
+});
+*/
 // display form to enter new posts
 router.get("/newposts", function(req, res){
   res.render("addpost");
@@ -23,8 +34,29 @@ router.post("/createpost", async function(req, res) {
   let postText = filter.clean(req.body.posted);
   // write new post to db
   db.create({username:req.body.username, title:req.body.title, posted: postText, category: req.body.category});
-  // sync db
-  db.sync();
+});
+
+//Likes updates
+router.put("/updatelike", function(req, res){
+  //get id for the row to be updated
+  let idTobeUpdated = req.body.id;
+  console.log(idTobeUpdated);
+  //find row by id
+  db.findOne({
+    where: { 
+      id: idTobeUpdated, 
+    }
+    // increment likes by 1
+  }).then(like => {
+    return like.increment('likes');
+    // reload the updated row
+  }).then(post => {
+    return post.reload();
+    // send updated row back to frontend
+  }).then(post => {
+    res.json(post);
+  });
+  
 });
 
 module.exports = router
