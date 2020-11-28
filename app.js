@@ -21,8 +21,7 @@ const routes = require("./controllers/post_controllers");
 
 app.use(routes);
 
-db.sequelize.sync().then(function(){
-    app.listen(PORT, ()=> {
-        console.log(`App listening on PORT: ${PORT}`);
-    });
+app.listen(PORT, ()=> {
+    console.log(`App listening on PORT: ${PORT}`);
+    
 })
