@@ -1,4 +1,3 @@
-//const connection = require("mysql2/typings/mysql/lib/Connection");
 
 $(document).ready(function(){
 
@@ -26,6 +25,7 @@ $(document).ready(function(){
     }
     
   });
+
   // display the new post form on button click
   $("#new-post-btn").on("click",function(){
 
@@ -35,6 +35,7 @@ $(document).ready(function(){
         location.href = "/newposts";
       })
   });
+
   // go back to the homepage on btn click
   $("#home-btn").on("click",function(){
 
@@ -44,6 +45,8 @@ $(document).ready(function(){
       location.href = "/";
     })
   });
+
+
   // submit form data in a POST query
   $("#cms").on("submit", function (event) {
 
@@ -65,13 +68,12 @@ $(document).ready(function(){
     $("#user").val("");
     $("#title").val("");
     $("#post-body").val("");
-    //Return user to posts page
-     //location.href = "/";
-     $(".modal").modal('show');
+    
+    // show post added modal
+    $(".modal").modal('show');
     });
   
   //Return to home page when modal closed
-  
   $(".modal-btn").on("click", function(){
     location.href = "/";
   });

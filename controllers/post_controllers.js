@@ -4,10 +4,10 @@ const Filter = require("bad-words");
 const filter = new Filter();
 const router = express.Router();
 
-// display all posts on the hompeage form the db
+// display all posts on the hompeage form the db in descending prder
 router.get("/", function(req, res) {
   db.Posts.findAll({raw:true, order: [['id', 'DESC']]}).then(function(results) {
-    //console.log(results);
+
     res.render("index", {posts:results});
     });
 });
